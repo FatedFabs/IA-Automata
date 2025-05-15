@@ -5,20 +5,49 @@ using UnityEngine.Tilemaps;
 
 public class GOL_Game : MonoBehaviour
 {
-    public Tilemap currentTilemap;
-    public Tilemap nextTilemap;
-    public Tile cellTile;
+    [SerializeField] private Tilemap currentTilemap;
+    [SerializeField] private Tilemap nextTilemap;
+    [SerializeField] private Tile cellTile;
 
-    public GOL_Pattern pattern;
+    [SerializeField] private GOL_Pattern pattern;
 
-    public float updateTimer = 0.05f;
+    [SerializeField] private float updateTimer = 0.05f;
+
+    private bool gameStart = false;
 
     void Start()
     {
-        SetPattern(pattern);
+        //SetInitialPattern(pattern);
     }
 
-    private void SetPattern(GOL_Pattern _pattern)
+    private void Update()
+    {
+        if (Input.GetMouseButtonDown(0) && !gameStart)
+        {
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector3Int mousePosInt = new Vector3Int(Mathf.FloorToInt(mousePos.x), Mathf.FloorToInt(mousePos.y), 0);
+
+            PaintCell(mousePosInt);
+        }
+    }
+
+    private void PaintCell(Vector3Int _pos)
+    {
+        if (!currentTilemap.HasTile(_pos))
+            currentTilemap.SetTile(_pos, cellTile);
+        else
+            currentTilemap.SetTile(_pos, null);
+    }
+
+    public void Play()
+    {
+        gameStart = true;
+
+        nextTilemap = currentTilemap;
+        currentTilemap.ClearAllTiles();
+    }
+
+    private void SetInitialPattern(GOL_Pattern _pattern)
     {
         ClearTilemap();
 

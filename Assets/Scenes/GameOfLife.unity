@@ -206,7 +206,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 234140358}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1470748469}
+        m_TargetAssemblyTypeName: GOL_Game, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &234140358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1083,6 +1095,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1470748469}
+        m_TargetAssemblyTypeName: GOL_Game, Assembly-CSharp
+        m_MethodName: Stop
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!114 &1231463798
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1318,8 +1342,7 @@ MonoBehaviour:
   currentTilemap: {fileID: 1162333015}
   nextTilemap: {fileID: 544393607}
   cellTile: {fileID: 11400000, guid: b03cde8350da77f41983e65f8e9cbe62, type: 2}
-  pattern: {fileID: 11400000, guid: 70122df057e8f1544822d767a6f1f5c1, type: 2}
-  updateTimer: 0.05
+  updateTimer: 0.1
 --- !u!1 &1784854190
 GameObject:
   m_ObjectHideFlags: 0
